@@ -7,6 +7,12 @@ export default class Task extends Component {
       <li>{this.props.task.text}</li>
     );
   }
+
+  render() {
+    return ( 
+      <li>{this.props.task.text}</li>
+    );
+  }
 }
  
 Task.propTypes = {

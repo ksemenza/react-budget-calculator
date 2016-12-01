@@ -12,9 +12,6 @@ class App extends Component {
       <Task key={task._id} task={task} />
     ));
   }
-...some lines skipped...
-    );
-  }
 }
  
 App.propTypes = {

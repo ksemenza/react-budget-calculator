@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './TimerExample.css';
-import './TimerExample.css';
 
 export default class TimerExample extends Component {
     getInitialState () {

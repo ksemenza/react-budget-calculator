@@ -1,0 +1,35 @@
+.photo > img {
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  width: 50px;
+  height: 36px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.jumbotron {
+  background: url('~/mint.jpg') no-repeat;
+  height: 450px;
+}
+
+.jumbotron > h1 {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  color: white;
+  font-size: 3.5em;
+  font-weight: 500;
+}
+
+.monthly__salary {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+}
+

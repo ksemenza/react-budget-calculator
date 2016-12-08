@@ -18,6 +18,12 @@ class App extends Component {
   }
 
   getUserSalary(event) {
+    const salary = +event.target.value;
+    if(salary === 'NaN') {
+      this.setState({
+        salary: 0
+      })
+    }
     this.setState({
       salary: event.target.value
     })

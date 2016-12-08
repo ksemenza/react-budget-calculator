@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Button from './Button';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      clicked: false
+    };
+    this.calculateBudget = this.calculateBudget.bind(this);
+    this.getUserBudget = this.getUserBudget.bind(this);
+  }
+
+  getUserBudget(event) {
+    this.setState({
+      value: event.target.value
+    })
+  }
+  calculateBudget() {
+    this.setState({
+      clicked: true
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="main">
+        <div className="monthly__salary"> 
+          <h2>What is your monthly salary? </h2>
+          <div className="ui icon input">
+            <input type="text" placeholder="Monthly Salary" value={this.state.budget} onChange={this.getUserBudget}/>
+            <Button onClick={this.calculateBudget} />
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }

@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
+import CategoryBucket from './CategoryBucket';
 import './CategoryBuckets.css';
 
 
 class CategoryBuckets extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    const {
-      salary, 
-      essentials,
-      wants,
-      needs
-    } = this.props;
-    console.log(this.props);
     return (
       <div>
         <h1>Rendering CategoryBucket.....</h1>
-        <CategoryBucket /> 
-        <CategoryBucket /> 
-        <CategoryBucket />
-        {this.props.budget.salary}
+        <CategoryBucket essentials={this.props.budget.essentials} /> 
+        <CategoryBucket wants={this.props.budget.wants} /> 
+        <CategoryBucket savings={this.props.budget.savings} />
+
 
       </div>
     );

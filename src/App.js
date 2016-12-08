@@ -40,7 +40,7 @@ class App extends Component {
       <div className="main">
         <div className="monthly__salary"> 
           <h2>What is your monthly salary? </h2>
-          <div className="ui icon input">
+          <div className="ui icon huge input">
             <input type="text" placeholder="Monthly Salary" value={this.state.budget} onChange={this.getUserSalary}/>
             <Button onClick={this.calculateBudget} />
           </div>

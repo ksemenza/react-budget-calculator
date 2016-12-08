@@ -7,14 +7,14 @@
 
 button {
   width: 50px;
-  height: 36px;
+  height: 51px;
   display: block;
   margin: 0 auto;
 }
 
 .jumbotron {
   background: url('~/mint.jpg') no-repeat;
-  height: 450px;
+  height: 300px;
 }
 
 .jumbotron > h1 {

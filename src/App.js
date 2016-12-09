@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import CategoryBuckets from './CategoryBuckets';
-import WarningModal from './WarningModal';
 import constants from './constants';
 import './App.css';
 
@@ -11,8 +10,7 @@ class App extends Component {
     super();
     this.state = {
       clicked: false,
-      salary: 0,
-      modalOpen: false
+      salary: 0
     };
     Object.assign(this.state, constants);
     this.calculateBudget = this.calculateBudget.bind(this);
@@ -21,16 +19,18 @@ class App extends Component {
 
   getUserSalary(event) {
     const salary = +event.target.value;
-    console.log(isNaN(salary));
+
     if(isNaN(salary)) {
       this.setState({
         salary: 0,
-        modalOpen: true
+        error: true
+      })
+    } else {
+      this.setState({
+        salary: event.target.value,
+        error: false
       })
     }
-    this.setState({
-      salary: event.target.value
-    })
   }
   calculateBudget() {
     const salary = Number(this.state.salary);
@@ -46,17 +46,17 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.error);
     return (
       <div className="main">
         <div className="monthly__salary"> 
           <h2>What is your monthly salary? </h2>
-          <div className="ui icon huge input">
+          <div className={this.state.error ? "ui icon huge input error" : "ui icon huge input"}>
             <input type="text" placeholder="Monthly Salary" value={this.state.budget} onChange={this.getUserSalary}/>
             <Button onClick={this.calculateBudget} />
           </div>
         </div>
         {this.state.clicked ? <CategoryBuckets budget={this.state} /> : null}
-        {this.state.modalOpen ? <WarningModal openModal={this.state.modalOpen} /> : null}
       </div>
     );
   }

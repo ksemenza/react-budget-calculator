@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import categories from './categories';
 import './CategoryBuckets.css';
 
 

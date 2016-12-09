@@ -1,10 +1,8 @@
-.category__buckets {
-
-}
-
-
 .doughnut { 
     margin: 0 auto;
-    width: 1000px;
-    height: 500px;
+    width: 365px;
+    height: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
+

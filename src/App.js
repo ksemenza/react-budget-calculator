@@ -30,9 +30,9 @@ class App extends Component {
   }
   calculateBudget() {
     const salary = Number(this.state.salary);
-    const essentials = salary * constants.essentials;
-    const wants = salary * constants.wants;
-    const savings = salary * constants.savings;
+    const essentials = (salary * constants.essentials).toFixed(1);
+    const wants = (salary * constants.wants).toFixed(1);
+    const savings = (salary * constants.savings).toFixed(1);
     this.setState({
       clicked: true,
       essentials: essentials,

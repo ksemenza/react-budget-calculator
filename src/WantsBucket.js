@@ -7,7 +7,7 @@ class WantsBucket extends Component {
     let categoryComponent = categories.wants.map(function(category) {
         return (
           <div className="category">
-            <h4>{category}</h4>
+            <h4 className="category__header">{category}</h4>
             <div className="ui icon large input">
               <input type="text" placeholder="Value here"/>
             </div>
@@ -17,7 +17,7 @@ class WantsBucket extends Component {
     return (
           <div className="category__bucket col-md-3">
             <h2 className="category__bucket--header">{this.props.name} </h2> 
-            <h3 className="category__bucket--number">{this.props.wants}</h3>
+            <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.wants}</h3>
             {categoryComponent}
           </div>
     );

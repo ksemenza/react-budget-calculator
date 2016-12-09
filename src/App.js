@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import CategoryBuckets from './CategoryBuckets';
+import WarningModal from './WarningModal';
 import constants from './constants';
 import './App.css';
 
@@ -10,7 +11,8 @@ class App extends Component {
     super();
     this.state = {
       clicked: false,
-      salary: 0
+      salary: 0,
+      modalOpen: false
     };
     Object.assign(this.state, constants);
     this.calculateBudget = this.calculateBudget.bind(this);
@@ -19,9 +21,11 @@ class App extends Component {
 
   getUserSalary(event) {
     const salary = +event.target.value;
-    if(salary === 'NaN') {
+    console.log(isNaN(salary));
+    if(isNaN(salary)) {
       this.setState({
-        salary: 0
+        salary: 0,
+        modalOpen: true
       })
     }
     this.setState({
@@ -52,8 +56,8 @@ class App extends Component {
           </div>
         </div>
         {this.state.clicked ? <CategoryBuckets budget={this.state} /> : null}
+        {this.state.modalOpen ? <WarningModal openModal={this.state.modalOpen} /> : null}
       </div>
-
     );
   }
 }

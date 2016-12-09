@@ -9,7 +9,7 @@ class SavingsBucket extends Component {
     let categoryComponent = categories.savings.map(function(category) {
         return (
           <div className="category">
-            <h4>{category}</h4>
+            <h4 className="category__header">{category}</h4>
             <div className="ui icon large input">
               <input type="text" placeholder="Value here"/>
             </div>
@@ -19,7 +19,7 @@ class SavingsBucket extends Component {
     return (
           <div className="category__bucket col-md-3">
             <h2 className="category__bucket--header">{this.props.name} </h2> 
-            <h3 className="category__bucket--number">{this.props.savings}</h3>
+            <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.savings}</h3>
             {categoryComponent}
           </div>
     );

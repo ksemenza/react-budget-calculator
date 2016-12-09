@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 //Components
-import CategoryBucket from './CategoryBucket';
+import EssentialsBucket from './EssentialsBucket';
+import WantsBucket from './WantsBucket';
+import SavingsBucket from './SavingsBucket';
+
 
 // CSS files
 import './CategoryBuckets.css';
@@ -51,14 +54,9 @@ class CategoryBuckets extends Component {
                     }}
           />
         </div>
-        <div class="category__bucket"> 
-          <CategoryBucket essentials={this.props.budget.essentials} name="Essentials"/> 
-        </div>
-        <div class="category__bucket">
-          <CategoryBucket wants={this.props.budget.wants} name="Wants" /> 
-        </div>
-        <CategoryBucket savings={this.props.budget.savings} name="Savings" />
-
+          <EssentialsBucket essentials={this.props.budget.essentials} name="Essentials"/> 
+          <WantsBucket wants={this.props.budget.wants} name="Wants" /> 
+          <SavingsBucket savings={this.props.budget.savings} name="Savings" />
 
       </div>
     );

@@ -4,4 +4,5 @@ var constants = {
     'savings': 0.2
 }
 
+
 export default constants;

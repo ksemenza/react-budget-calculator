@@ -12,3 +12,14 @@
     border-style: solid;
     background: gray;
 }
+
+.category {
+    margin-top: 20px;
+}
+.category h3,
+.category input
+ {
+    display: inline;
+    margin-right: 15px;
+    vertical-align: top;
+}

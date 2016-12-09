@@ -8,8 +8,11 @@ class WantsBucket extends Component {
         return (
           <div className="category">
             <h4 className="category__header">{category}</h4>
-            <div className="ui icon large input">
-              <input type="text" placeholder="Value here"/>
+            <div className="ui icon huge input">
+                <input className="category__header--essentials"
+                       type="text"
+                       placeholder={category}
+                />            
             </div>
           </div>
         );

@@ -46,7 +46,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.error);
     return (
       <div className="main">
         <div className="monthly__salary"> 

@@ -56,7 +56,6 @@ class CategoryBuckets extends Component {
         </div>
         <div class="category__bucket">
           <CategoryBucket wants={this.props.budget.wants} name="Wants" /> 
-
         </div>
         <CategoryBucket savings={this.props.budget.savings} name="Savings" />
 

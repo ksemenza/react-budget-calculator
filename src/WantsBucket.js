@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
+import Expense from './Expense';
 import categories from './categories';
 import './CategoryBuckets.css';
 
 class WantsBucket extends Component {
   render() {
     let categoryComponent = categories.wants.map(function(category) {
-        return (
-          <div className="category">
-            <h4 className="category__header">{category}</h4>
-            <div className="ui icon huge input">
-                <input className="category__header--essentials"
-                       type="text"
-                       placeholder={category}
-                />            
-            </div>
-          </div>
-        );
-    }); 
+        return (<Expense category={category} />);
+    });
     return (
           <div className="category__bucket col-md-3">
             <h2 className="category__bucket--header">{this.props.name} </h2> 

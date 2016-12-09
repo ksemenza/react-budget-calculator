@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Expense from './Expense';
+
 import categories from './categories';
 import './CategoryBuckets.css';
 
@@ -7,17 +9,7 @@ class EssentialsBucket extends Component {
 
   render() {
     let categoryComponent = categories.essentials.map(function(category) {
-        return (
-          <div className="category">
-            <h4 className="category__header">{category}</h4>
-            <div className="ui icon huge input">
-              <input className="category__header--essentials"
-                     type="text"
-                     placeholder={category}
-              />
-            </div>
-          </div>
-        );
+        return (<Expense category={category} />);
     });
     return (
           <div className="category__bucket col-md-3">

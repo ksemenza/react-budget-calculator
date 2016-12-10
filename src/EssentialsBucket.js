@@ -8,8 +8,8 @@ import './CategoryBuckets.css';
 class EssentialsBucket extends Component {
 
   render() {
-    let categoryComponent = categories.essentials.map(function(category) {
-        return (<Expense category={category} />);
+    let categoryComponent = categories.essentials.map(function(expense) {
+        return (<Expense expense={expense} category="essentials" />);
     });
     return (
           <div className="category__bucket col-md-3">

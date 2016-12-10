@@ -7,8 +7,8 @@ import './CategoryBuckets.css';
 class SavingsBucket extends Component {
 
   render() {
-    let categoryComponent = categories.savings.map(function(category) {
-        return (<Expense category={category} />);
+    let categoryComponent = categories.savings.map(function(expense) {
+      return (<Expense expense={expense} category="savings" />);
     });
     return (
           <div className="category__bucket col-md-3">

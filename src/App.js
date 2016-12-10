@@ -34,6 +34,7 @@ class App extends Component {
   }
   calculateBudget() {
     const salary = Number(this.state.salary);
+
     const essentials = (salary * constants.essentials).toFixed(1);
     const wants = (salary * constants.wants).toFixed(1);
     const savings = (salary * constants.savings).toFixed(1);
@@ -51,7 +52,7 @@ class App extends Component {
         <div className="monthly__salary"> 
           <h2>What is your monthly salary? </h2>
           <div className={this.state.error ? "ui icon huge input error" : "ui icon huge input"}>
-            <input type="text" placeholder="Monthly Salary" value={this.state.budget} onChange={this.getUserSalary}/>
+            <input type="text" placeholder="Monthly Salary" onChange={this.getUserSalary}/>
             <Button onClick={this.calculateBudget} />
           </div>
         </div>

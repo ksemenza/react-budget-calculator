@@ -32,7 +32,7 @@ class SavingsBucket extends Component {
             <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.savings}</h3>
             {categoryComponent}
             <h2>Left: {this.state.moneyLeft} </h2>
-
+            <MoneyLeft /> 
           </div>
     );
   }

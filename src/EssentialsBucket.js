@@ -6,10 +6,10 @@ import './CategoryBuckets.css';
 
 
 class EssentialsBucket extends Component {
-
   render() {
+    let essentialsBudget = this.props.essentials;
     let categoryComponent = categories.essentials.map(function(expense) {
-        return (<Expense expense={expense} category="essentials" />);
+        return (<Expense expense={expense} category="essentials" distribution={essentialsBudget} />);
     });
     return (
           <div className="category__bucket col-md-3">

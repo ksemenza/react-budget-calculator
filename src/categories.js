@@ -1,7 +1,7 @@
 var categories = {
-    'essentials': [ 'Rent', 'Groceries', 'Utilities', 'Transportation'],
-    'wants': [ 'Phone Bill', 'Coffee', 'Gym', 'Restaurants', 'Bars/Clubs', 'Concerts', 'Vacation'],
-    'savings': [ 'College Loans', 'Emergency Fund', '401k']
+    'essentials': [ 'Rent', 'Groceries', 'Utilities', 'Transportation', 'Phone Bill'],
+    'wants': [ 'Coffee', 'Gym', 'Restaurants', 'Bars/Concerts', 'Vacation'],
+    'savings': [ 'College Loans', 'Emergency Fund', '401k', 'Wealthfront/Betterment']
 };
 
 

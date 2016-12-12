@@ -4,10 +4,21 @@ import categories from './categories';
 import './CategoryBuckets.css';
 
 class WantsBucket extends Component {
+  constructor(props) {
+    super(props);
+    this.onExpenseChanged = this.onExpenseChanged.bind(this);
+  }
+  onExpenseChanged(moneyLeft) {
+    return moneyLeft;
+  }
   render() {
     let wantsBudget = this.props.wants;
     let categoryComponent = categories.wants.map(function(expense) {
-        return (<Expense expense={expense} category="wants" distribution={wantsBudget}/>);
+        return (<Expense expense={expense}
+                         category="wants"
+                         distribution={wantsBudget}
+                         callbackParent={(moneyLeft) => this.onExpenseChanged(moneyLeft)}
+                />);
     });
     return (
           <div className="category__bucket col-md-3">

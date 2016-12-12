@@ -5,11 +5,21 @@ import './CategoryBuckets.css';
 
 
 class SavingsBucket extends Component {
-
+  constructor(props) {
+    super(props);
+    this.onExpenseChanged = this.onExpenseChanged.bind(this);
+  }
+  onExpenseChanged(moneyLeft) {
+    return moneyLeft;
+  }
   render() {
     let savingsBudget = this.props.savings;
     let categoryComponent = categories.savings.map(function(expense) {
-      return (<Expense expense={expense} category="savings" distribution={savingsBudget}/>);
+      return (<Expense expense={expense}
+                       category="savings"
+                       distribution={savingsBudget}
+                       callbackParent={(moneyLeft) => this.onExpenseChanged(moneyLeft)}
+              />);
     });
     return (
           <div className="category__bucket col-md-3">

@@ -23,10 +23,6 @@ class EssentialsBucket extends Component {
     this.setState({ moneyLeft: moneyLeft });
   }
 
-  calculateCompountInterest(essentials) {
-    console.log("hi");
-    console.log(compoundInterest(5.5, 1, 1000, 20));
-  }
   render() {
     let essentialsBudget = this.props.essentials;
     let categoryComponent = categories.essentials.map(expense => {

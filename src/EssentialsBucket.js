@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Expense from './Expense';
 
-import Finance from './finance.js'
 import categories from './categories';
 import './CategoryBuckets.css';
 
@@ -16,14 +15,11 @@ class EssentialsBucket extends Component {
   }
 
   //Compound Interest (CI)
-  // finance.CI(rate, compoundings per period, principal, number of periods);
   onExpenseChanged(moneyLeft) {
     this.setState({ moneyLeft: moneyLeft });
     this.calculateCompountInterest(this.props.essentials);
   }
   calculateCompountInterest(essentials) {
-    let compoundedInterest = Finance.CI(5.0, 1 ,essentials, 1);
-    console.log(compoundedInterest);
   }
   render() {
     let essentialsBudget = this.props.essentials;

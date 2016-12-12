@@ -11,7 +11,7 @@ class Expense extends Component {
       const essentialsExpenses = $('.category__header--essentials');
       const savingsExpenses = $('.category__header--savings');
       const wantsExpenses = $('.category__header--wants');
-      let targetSum = this.props.distribution;
+      let moneyLeft = this.props.distribution;
       let expenses; 
       switch (this.props.category) {
         case 'essentials':
@@ -27,9 +27,9 @@ class Expense extends Component {
           console.log("Props category does not exist");
       }
       $.each(expenses, function(element, input) {
-        targetSum -= Number(input.value);
+        moneyLeft -= Number(input.value);
       });
-      console.log(targetSum);
+      this.props.callbackParent(moneyLeft);
     }
     render() {
       const categoryHeaderClass = "category__header--" + this.props.category;
@@ -40,7 +40,7 @@ class Expense extends Component {
             <input className={categoryHeaderClass}
                    type="text"
                    placeholder={this.props.expense}
-                   onChange={this.addExpenses}
+                   onChange={() => this.addExpenses()}
             />
           </div>
         </div>
@@ -48,5 +48,9 @@ class Expense extends Component {
     }
 
 }
+
+Expense.propTypes = {
+  callbackParent: React.PropTypes.func,
+};
 
 export default Expense;

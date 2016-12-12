@@ -6,10 +6,21 @@ import './CategoryBuckets.css';
 
 
 class EssentialsBucket extends Component {
+  constructor(props) {
+    super(props);
+    this.onExpenseChanged = this.onExpenseChanged.bind(this);
+  }
+  onExpenseChanged(moneyLeft) {
+    // this.setState({ moneyLeft: moneyLeft });
+    return moneyLeft;
+  }
   render() {
     let essentialsBudget = this.props.essentials;
-    let categoryComponent = categories.essentials.map(function(expense) {
-        return (<Expense expense={expense} category="essentials" distribution={essentialsBudget} />);
+    let categoryComponent = categories.essentials.map(expense => {
+        return (<Expense expense={expense} 
+                         category="essentials" 
+                         distribution={essentialsBudget} 
+                         callbackParent={(moneyLeft) => this.onExpenseChanged(moneyLeft) } />);
     });
     return (
           <div className="category__bucket col-md-3">

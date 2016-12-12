@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Expense from './Expense';
+import MoneyLeft from './MoneyLeft';
+
 import categories from './categories';
 import './CategoryBuckets.css';
 

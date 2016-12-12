@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Expense from './Expense';
+import MoneyLeft from './MoneyLeft';
+
 
 import categories from './categories';
 import './CategoryBuckets.css';
@@ -34,6 +36,9 @@ class EssentialsBucket extends Component {
             <h2 className="category__bucket--header">{this.props.name} </h2> 
             <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.essentials}</h3>
             {categoryComponent}
+
+            <MoneyLeft moen/> 
+            
             <h2>Left: {this.state.moneyLeft} </h2>
           </div>
     );

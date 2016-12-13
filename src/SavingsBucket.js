@@ -31,8 +31,8 @@ class SavingsBucket extends Component {
             <h2 className="category__bucket--header">{this.props.name} </h2> 
             <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.savings}</h3>
             {categoryComponent}
-            <h2>Left: {this.state.moneyLeft} </h2>
             <MoneyLeft /> 
+            <h2>Left: {this.state.moneyLeft} </h2>
           </div>
     );
   }

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Expense from './Expense';
 import MoneyLeft from './MoneyLeft';
 
+import { compoundInterest } from './finance.js';
+
 import categories from './categories';
+import finance from './financialConstants';
 import './CategoryBuckets.css';
 
 
@@ -10,12 +13,16 @@ class SavingsBucket extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      moneyLeft: this.props.savings
+      moneyLeft: this.props.savings,
+      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, this.props.savings, finance.years)
     }
     this.onExpenseChanged = this.onExpenseChanged.bind(this);
   }
   onExpenseChanged(moneyLeft) {
-    this.setState({ moneyLeft: moneyLeft });
+    this.setState({ 
+      moneyLeft: moneyLeft,
+      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, moneyLeft, finance.years)
+    });
   }
   render() {
     let savingsBudget = this.props.savings;
@@ -33,6 +40,8 @@ class SavingsBucket extends Component {
             {categoryComponent}
             <MoneyLeft /> 
             <h2>Left: {this.state.moneyLeft} </h2>
+            <h2>Compounded Money: {this.state.compoundedMoneyLeft} </h2>
+
           </div>
     );
   }

@@ -3,6 +3,7 @@ import Expense from './Expense';
 import MoneyLeft from './MoneyLeft';
 
 import { compoundInterest } from './finance.js';
+import finance from './financialConstants';
 import categories from './categories';
 import './CategoryBuckets.css';
 
@@ -12,15 +13,17 @@ class EssentialsBucket extends Component {
     super(props);
     this.state = {
       moneyLeft: this.props.essentials,
-      compoundedMoneyLeft: compoundInterest(6, 1, this.props.essentials, 20)
+      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, this.props.essentials, finance.years)
     }
 
     this.onExpenseChanged = this.onExpenseChanged.bind(this);
   }
 
-  //Compound Interest (CI)
   onExpenseChanged(moneyLeft) {
-    this.setState({ moneyLeft: moneyLeft });
+    this.setState({ 
+      moneyLeft: moneyLeft,
+      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, moneyLeft, finance.years)
+    });
   }
 
   render() {
@@ -41,7 +44,6 @@ class EssentialsBucket extends Component {
             
             <h2>Left: {this.state.moneyLeft} </h2>
             <h2>Compounded Money: {this.state.compoundedMoneyLeft} </h2>
-
             </div>
     );
   }

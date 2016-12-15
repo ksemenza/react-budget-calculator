@@ -21,13 +21,15 @@ class EssentialsBucket extends Component {
 
   onExpenseChanged(moneyLeft) {
     let compoundedMoneyLeft = compoundInterest(finance.compoundedRate, moneyLeft, finance.years);
-    let percentIncrease = ((moneyLeft/compoundedMoneyLeft) * 100).toFixed(2);
+    let moneyDiff = (compoundedMoneyLeft - moneyLeft).toFixed(2);
 
-    console.log(moneyLeft, compoundedMoneyLeft, percentIncrease);
+    if (moneyDiff < 0) {
+      moneyDiff = "You are in debt";
+    }
     this.setState({ 
       moneyLeft: moneyLeft,
       compoundedMoneyLeft: compoundedMoneyLeft,
-      percentIncrease: percentIncrease
+      moneyDiff: moneyDiff
     });
 
   }
@@ -46,19 +48,10 @@ class EssentialsBucket extends Component {
             <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.essentials}</h3>
             {categoryComponent}
 
-            <MoneyLeft moneyLeft={this.state.moneyLeft} /> 
-            
-            <div class="red statistic">
-                <div class="value">
-                  {this.state.moneyLeft}
-                </div>
-                <div class="label">
-                  Money Left
-                </div>
-            </div>
-            <h2>Compounded Money: {this.state.compoundedMoneyLeft}</h2>
-            <h2>Percentage Increase: {this.state.percentIncrease}</h2>
-
+            <MoneyLeft moneyLeft={this.state.moneyLeft} 
+                       compoundedMoneyLeft={this.state.compoundedMoneyLeft}
+                       moneyDiff={this.state.moneyDiff}
+            /> 
             </div>
     );
   }

@@ -24,6 +24,14 @@ class SavingsBucket extends Component {
       compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, moneyLeft, finance.years)
     });
   }
+  calculatePercentIncrease(moneyLeft, compoundedMoneyLeft) {
+    console.log(moneyLeft, compoundedMoneyLeft);
+    let percentIncrease = ((moneyLeft/compoundedMoneyLeft) * 100).toFixed(2);
+    console.log(percentIncrease);
+    this.setState({
+      percentIncrease: percentIncrease
+    });
+  }
   render() {
     let savingsBudget = this.props.savings;
     let categoryComponent = categories.savings.map(expense => {
@@ -33,15 +41,17 @@ class SavingsBucket extends Component {
                        callbackParent={(moneyLeft) => this.onExpenseChanged(moneyLeft)}
               />);
     });
+    let moneyLeft = this.state.moneyLeft;
+    let compoundedMoneyLeft = this.state.compoundedMoneyLeft;
     return (
           <div className="category__bucket col-md-3">
             <h2 className="category__bucket--header">{this.props.name} </h2> 
             <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.savings}</h3>
             {categoryComponent}
             <MoneyLeft /> 
-            <h2>Left: {this.state.moneyLeft} </h2>
-            <h2>Compounded Money: {this.state.compoundedMoneyLeft} </h2>
-
+            <h2>Savings: {this.state.moneyLeft} </h2>
+            <h2>Savings after 20 years of Compound Interest: {this.state.compoundedMoneyLeft} </h2>
+            <h2>Percentage Increase: {this.state.percentIncrease}</h2>
           </div>
     );
   }

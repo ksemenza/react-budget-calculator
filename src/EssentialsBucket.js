@@ -24,6 +24,16 @@ class EssentialsBucket extends Component {
       moneyLeft: moneyLeft,
       compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, moneyLeft, finance.years)
     });
+    this.calculatePercentIncrease(this.state.moneyLeft, this.state.compoundedMoneyLeft);
+  }
+
+  calculatePercentIncrease(moneyLeft, compoundedMoneyLeft) {
+    console.log(moneyLeft, compoundedMoneyLeft);
+    let percentIncrease = ((moneyLeft/compoundedMoneyLeft) * 100).toFixed(2);
+    console.log(percentIncrease);
+    this.setState({
+      percentIncrease: percentIncrease
+    });
   }
 
   render() {
@@ -34,6 +44,8 @@ class EssentialsBucket extends Component {
                          distribution={essentialsBudget} 
                          callbackParent={(moneyLeft) => this.onExpenseChanged(moneyLeft) } />);
     });
+    let moneyLeft = this.state.moneyLeft;
+    let compoundedMoneyLeft = this.state.compoundedMoneyLeft;
     return (
           <div className="category__bucket col-md-3">
             <h2 className="category__bucket--header">{this.props.name} </h2> 
@@ -42,8 +54,10 @@ class EssentialsBucket extends Component {
 
             <MoneyLeft moneyLeft={this.state.moneyLeft} /> 
             
-            <h2>Left: {this.state.moneyLeft} </h2>
-            <h2>Compounded Money: {this.state.compoundedMoneyLeft} </h2>
+            <h2>Left: {this.state.moneyLeft}</h2>
+            <h2>Compounded Money: {this.state.compoundedMoneyLeft}</h2>
+            <h2>Percentage Increase: {this.state.percentIncrease}</h2>
+
             </div>
     );
   }

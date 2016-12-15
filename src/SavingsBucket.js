@@ -41,8 +41,6 @@ class SavingsBucket extends Component {
                        callbackParent={(moneyLeft) => this.onExpenseChanged(moneyLeft)}
               />);
     });
-    let moneyLeft = this.state.moneyLeft;
-    let compoundedMoneyLeft = this.state.compoundedMoneyLeft;
     return (
           <div className="category__bucket col-md-3">
             <h2 className="category__bucket--header">{this.props.name} </h2> 

@@ -12,7 +12,10 @@ import './CategoryBuckets.css';
 
 
 class CategoryBuckets extends Component {
-
+  constructor(props) {
+    super();
+    console.log(props);
+  }
   render() {
     const budget = this.props.budget;
     const data = {

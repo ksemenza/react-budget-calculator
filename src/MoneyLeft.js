@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './CategoryBuckets.css';
 
 
 class MoneyLeft extends Component {
   render () {
     return (
-      <div>
+      <div className="money_left__divider">
         <h4 className="ui horizontal divider header">
           <i className="bar chart icon"></i>
           Remainder of Budget
@@ -23,7 +24,7 @@ class MoneyLeft extends Component {
             {this.props.compoundedMoneyLeft}
           </div>
           <div className="label">
-            Compounded Money after 20 years
+            Compound Interest (20 years)
           </div>
         </div>
 

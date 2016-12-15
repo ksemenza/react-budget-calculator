@@ -28,7 +28,7 @@ class EssentialsBucket extends Component {
       moneyDiff = "You are in debt";
     }
     this.setState({ 
-      moneyLeft: moneyLeft,
+      moneyLeft: moneyLeft.toFixed(2),
       compoundedMoneyLeft: compoundedMoneyLeft,
       moneyDiff: moneyDiff
     });

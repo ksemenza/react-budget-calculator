@@ -11,10 +11,28 @@ class MoneyLeft extends Component {
         </h4>
         <div className="ui horizontal statistic">
           <div className="value">
-            2,204
+            {this.props.moneyLeft}
           </div>
           <div className="label">
-            Views
+            Money Left
+          </div>
+        </div>
+
+        <div className="ui horizontal statistic">
+          <div className="value">
+            {this.props.compoundedMoneyLeft}
+          </div>
+          <div className="label">
+            Compounded Money after 20 years
+          </div>
+        </div>
+
+        <div className="ui horizontal statistic">
+          <div className="value">
+            {this.props.moneyDiff}
+          </div>
+          <div className="label">
+            Money Earned
           </div>
         </div>
       </div>

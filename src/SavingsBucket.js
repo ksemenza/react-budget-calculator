@@ -14,22 +14,22 @@ class SavingsBucket extends Component {
     super(props);
     this.state = {
       moneyLeft: this.props.savings,
-      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, this.props.savings, finance.years)
+      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, this.props.savings, finance.years),
+      moneyDiff: 0
     }
     this.onExpenseChanged = this.onExpenseChanged.bind(this);
   }
   onExpenseChanged(moneyLeft) {
+    let compoundedMoneyLeft = compoundInterest(finance.compoundedRate, moneyLeft, finance.years);
+    let moneyDiff = (compoundedMoneyLeft - moneyLeft).toFixed(2);
+
+    if (moneyDiff < 0) {
+      moneyDiff = "You are in debt";
+    }
     this.setState({ 
       moneyLeft: moneyLeft,
-      compoundedMoneyLeft: compoundInterest(finance.compoundedRate, finance.compoundedTimes, moneyLeft, finance.years)
-    });
-  }
-  calculatePercentIncrease(moneyLeft, compoundedMoneyLeft) {
-    console.log(moneyLeft, compoundedMoneyLeft);
-    let percentIncrease = ((moneyLeft/compoundedMoneyLeft) * 100).toFixed(2);
-    console.log(percentIncrease);
-    this.setState({
-      percentIncrease: percentIncrease
+      compoundedMoneyLeft: compoundedMoneyLeft,
+      moneyDiff: moneyDiff
     });
   }
   render() {
@@ -46,10 +46,10 @@ class SavingsBucket extends Component {
             <h2 className="category__bucket--header">{this.props.name} </h2> 
             <h3 className="category__bucket--number"><i className="dollar icon"></i>{this.props.savings}</h3>
             {categoryComponent}
-            <MoneyLeft /> 
-            <h2>Savings: {this.state.moneyLeft} </h2>
-            <h2>Savings after 20 years of Compound Interest: {this.state.compoundedMoneyLeft} </h2>
-            <h2>Percentage Increase: {this.state.percentIncrease}</h2>
+            <MoneyLeft moneyLeft={this.state.moneyLeft} 
+                       compoundedMoneyLeft={this.state.compoundedMoneyLeft}
+                       moneyDiff={this.state.moneyDiff}
+            /> 
           </div>
     );
   }

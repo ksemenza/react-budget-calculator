@@ -13,7 +13,7 @@ class WantsBucket extends Component {
     this.state = {
       moneyLeft: this.props.wants,
       compoundedMoneyLeft: compoundInterest(finance.compoundedRate, this.props.wants, finance.years),
-      moneyDiff: 0
+      moneyDiff: compoundInterest(finance.compoundedRate, this.props.wants, finance.years)
     }
     this.onExpenseChanged = this.onExpenseChanged.bind(this);
   }

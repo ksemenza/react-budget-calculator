@@ -14,7 +14,7 @@ class EssentialsBucket extends Component {
     this.state = {
       moneyLeft: this.props.essentials,
       compoundedMoneyLeft: compoundInterest(finance.compoundedRate, this.props.essentials, finance.years),
-      moneyDiff: 0
+      moneyDiff: compoundInterest(finance.compoundedRate, this.props.essentials, finance.years)
     }
 
     this.onExpenseChanged = this.onExpenseChanged.bind(this);

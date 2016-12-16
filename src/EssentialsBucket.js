@@ -19,7 +19,6 @@ class EssentialsBucket extends Component {
 
     this.onExpenseChanged = this.onExpenseChanged.bind(this);
   }
-
   onExpenseChanged(moneyLeft) {
     let compoundedMoneyLeft = compoundInterest(finance.compoundedRate, moneyLeft, finance.years);
     let moneyDiff = (compoundedMoneyLeft - moneyLeft).toFixed(2);

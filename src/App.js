@@ -27,16 +27,13 @@ class App extends Component {
       })
     } else {
       this.setState({
-        salary: event.target.value,
+        salary: salary,
         error: false
       })
     }
   }
   calculateBudget() {
     const salary = Number(this.state.salary);
-
-    //is this good react practice? Need to find a better way to do it
-    // this.forceUpdate();
 
     const essentials = (salary * constants.essentials).toFixed(1);
     const wants = (salary * constants.wants).toFixed(1);
@@ -45,7 +42,7 @@ class App extends Component {
       clicked: true,
       essentials: essentials,
       wants: wants,
-      savings: savings
+      savings: savings,
     });
   }
 

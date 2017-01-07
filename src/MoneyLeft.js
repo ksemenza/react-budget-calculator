@@ -10,7 +10,7 @@ class MoneyLeft extends Component {
           <i className="bar chart icon"></i>
           Remainder of Budget
         </h4>
-        <div className="ui horizontal statistic">
+        <div className="ui green horizontal statistic">
           <div className="value">
             {this.props.moneyLeft}
           </div>
@@ -19,7 +19,7 @@ class MoneyLeft extends Component {
           </div>
         </div>
 
-        <div className="ui horizontal statistic">
+        <div className="ui purple horizontal statistic">
           <div className="value">
             {this.props.compoundedMoneyLeft}
           </div>
@@ -28,7 +28,7 @@ class MoneyLeft extends Component {
           </div>
         </div>
 
-        <div className="ui horizontal statistic">
+        <div className="ui pink horizontal statistic">
           <div className="value">
             {this.props.moneyDiff}
           </div>

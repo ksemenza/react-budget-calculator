@@ -27,7 +27,7 @@ class App extends Component {
       })
     } else {
       this.setState({
-        salary: event.target.value,
+        salary: salary,
         error: false
       })
     }
@@ -42,7 +42,7 @@ class App extends Component {
       clicked: true,
       essentials: essentials,
       wants: wants,
-      savings: savings
+      savings: savings,
     });
   }
 

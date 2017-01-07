@@ -15,7 +15,7 @@ class SavingsBucket extends Component {
     this.state = {
       moneyLeft: this.props.savings,
       compoundedMoneyLeft: compoundInterest(finance.compoundedRate, this.props.savings, finance.years),
-      moneyDiff: 0
+      moneyDiff: compoundInterest(finance.compoundedRate, this.props.savings, finance.years)
     }
     this.onExpenseChanged = this.onExpenseChanged.bind(this);
   }

@@ -1,5 +1,5 @@
 var finance = {
-    'compoundedRate': 0.06,
+    'compoundedRate': 0.10,
     'years': 20
 }
 

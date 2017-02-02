@@ -43,23 +43,24 @@ class CategoryBuckets extends Component {
     };
     return (
       <div className="category__buckets">
-        <div className="doughnut">
-          <Doughnut data={data} 
-                    width={350}
-                    height={350}
-                    options={{
-                        maintainAspectRatio: true,
-                        responsive: false
-                    }}
-          />
-        </div>
           <EssentialsBucket essentials={this.props.budget.essentials} name="Essentials"/> 
           <WantsBucket wants={this.props.budget.wants} name="Wants" /> 
           <SavingsBucket savings={this.props.budget.savings} name="Savings" />
-
       </div>
     );
   }
 }
 
 export default CategoryBuckets;
+
+/*
+<div className="doughnut">
+  <Doughnut data={data} 
+            width={350}
+            height={350}
+            options={{
+                maintainAspectRatio: true,
+                responsive: false
+            }}
+  />
+</div>*/
